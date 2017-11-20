@@ -20,5 +20,9 @@ Route::get('welcome', function () {
 });
 
 Route::get('hello', function () {
-    return view('hello');
+    return view('hello', ['name' => 'Andre M']);
 });
+
+Route::get('about', 'PageController@about');
+
+Route::get('contact', 'PageControllerContact@contact');

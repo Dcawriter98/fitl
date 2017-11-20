@@ -38,7 +38,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Laravel 5--Hello and Welcome</div>
+                <div class="title">Laravel 5--Hello and Welcome <?php echo $name; ?></div>
             </div>
         </div>
     </body>
