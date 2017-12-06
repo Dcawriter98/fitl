@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Job_record;
+
 class JobRecordController extends Controller
 {
     /**
@@ -47,8 +49,13 @@ class JobRecordController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        return view('jobrecords/show');
+    {   
+        $data = array();
+        
+        $job_record = Job_record::find($id);
+        $data['job_record'] = $job_record;
+        
+        return view('jobrecords/show', $data );
     }
 
     /**
