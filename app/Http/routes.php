@@ -25,8 +25,8 @@ Route::get('hello', function () {
 
 Route::get('about', 'PageController@about');
 
-//Route::get('contact', 'PageController@contact');
+Route::get('contact', 'PageController@contact');
 
-Route::get('contact', 'PageControllerContact@contact');
+//Route::get('contact', 'PageControllerContact@contact');
 
 Route::get('jobrecords/{jobrecord}', 'JobRecordController@show');
