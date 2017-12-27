@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Job Applications App</title>
-</head>
-<body>
-	
-<!--Display selected information from php code above-->
+@extends('layouts.master')
 
+@section('title')
+Job Applications App
+@endsection
+	
+@section('content')
 <h1>Job Application Record</h1>
 <p>The job record details follow:<br> 
 	<b>Date of application</b> <?php echo $job_record->app_date; ?><br>
@@ -22,5 +20,4 @@
 	<b>Confirmation information</b> <?php echo $job_record->confirmation_info; ?><br>
 
 </p>
-</body>	
-</html>
+@endsection
