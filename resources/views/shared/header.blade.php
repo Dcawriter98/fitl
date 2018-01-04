@@ -16,7 +16,7 @@
     <div class="collapse navbar-collapse" id="main_menu">
       <ul class="nav navbar-nav">
         <li><a href="{{ url('about') }}">About</a></li>
-        <li><a href="#">Job Information</a></li>
+        <li><a href="{{ url('jobrecords') }}">Job Records</a></li>
         <li><a href="{{ url('contact') }}">Contact</a></li>        
       </ul>
 

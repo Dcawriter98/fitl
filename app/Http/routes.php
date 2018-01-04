@@ -30,3 +30,4 @@ Route::get('contact', 'PageController@contact');
 //Route::get('contact', 'PageControllerContact@contact');
 
 Route::get('jobrecords/{jobrecord}', 'JobRecordController@show');
+Route::get('jobrecords', 'JobRecordController@index');

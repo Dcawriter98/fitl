@@ -18,7 +18,12 @@ class JobRecordController extends Controller
      */
     public function index()
     {
-        //
+        $jobrecords = Job_record::all();
+
+        $data = array();
+        $data['objects'] = $jobrecords;
+
+        return view('jobrecords.index', $data);
     }
 
     /**
