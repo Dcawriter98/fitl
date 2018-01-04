@@ -33,7 +33,10 @@ class JobRecordController extends Controller
      */
     public function create()
     {
-        //
+        $jobrecord = new Job_record;
+        $data = array();
+        $data['job_record'] = $jobrecord;
+        return view('jobrecords.create', $data);
     }
 
     /**
