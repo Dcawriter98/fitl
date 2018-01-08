@@ -29,6 +29,7 @@ Route::get('contact', 'PageController@contact');
 
 //Route::get('contact', 'PageControllerContact@contact');
 
+Route::post('jobrecords/store', 'JobRecordController@store');
 Route::get('jobrecords/create', 'JobRecordController@create');
 Route::get('jobrecords/{jobrecord}', 'JobRecordController@show');
 Route::get('jobrecords', 'JobRecordController@index');

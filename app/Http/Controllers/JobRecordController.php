@@ -47,7 +47,9 @@ class JobRecordController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        echo '<pre>';
+        echo $request =>employer_name;
+        echo '</pre>';
     }
 
     /**
