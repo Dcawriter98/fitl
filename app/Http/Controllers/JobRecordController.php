@@ -47,9 +47,23 @@ class JobRecordController extends Controller
      */
     public function store(Request $request)
     {
-        echo '<pre>';
-        echo $request =>employer_name;
-        echo '</pre>';
+        $jobrecord = new Job_record;
+
+        // set the job record's data from the form data
+        $jobrecord->app_data = $request->app_data;
+        $jobrecord->contact_method = $request->contact_method;
+        $jobrecord->employer_name = $request->employer_name;
+        $jobrecord->employer_address = $request->employer_address;
+        $jobrecord->employer_website = $request->employer_website;
+        $jobrecord->position = $request->position;
+        $jobrecord->work_type = $request->work_type;
+        $jobrecord->org_contact = $request->org_contact;
+        $jobrecord->contact_tel = $request->contact_tel;
+        $jobrecord->app_submit = $request->app_submit;
+        $jobrecord->confirmation_info = $request->confirmation_info;
+
+        // create the new job record in the database
+        $jobrecord->save();
     }
 
     /**
