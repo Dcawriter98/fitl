@@ -16,23 +16,23 @@
 </div>
 
 <div class="form-group">
-    {!! Form::label('contact_method', 'Contact Method (E-mail, In Person, Phone/Fax, Postal Mail, or Website)') !!}
-    {!! Form::text('contact_method', '', ['class' => 'form control']) !!}
+    {!! Form::label('contact', 'Contact Method (E-mail, In Person, Phone/Fax, Postal Mail, or Website)') !!}
+    {!! Form::text('contact', '', ['class' => 'form control']) !!}
 </div>
 
 <div class="form-group">
-    {!! Form::label('employer_name', 'Employer Name') !!}
-    {!! Form::text('employer_name', '', ['class' => 'form control']) !!}
+    {!! Form::label('emp_name', 'Employer Name') !!}
+    {!! Form::text('emp_name', '', ['class' => 'form control']) !!}
 </div>
 
 <div class="form-group">
-    {!! Form::label('employer_address', 'Employer Address') !!}
-    {!! Form::textarea('employer_address', '', ['class' => 'form control']) !!}
+    {!! Form::label('emp_add', 'Employer Address') !!}
+    {!! Form::textarea('emp_add', '', ['class' => 'form control']) !!}
 </div>
 
 <div class="form-group">
-    {!! Form::label('employer_website', 'Employer Website') !!}
-    {!! Form::text('employer_website', '', ['class' => 'form control']) !!}
+    {!! Form::label('emp_website', 'Employer Website') !!}
+    {!! Form::text('emp_website', '', ['class' => 'form control']) !!}
 </div>
 
 <div class="form-group">

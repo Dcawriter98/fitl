@@ -2,10 +2,12 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use \Esensi\Model\Model;
 
 class Job_record extends Model
 {
+	//protected $rules = [
 
+	]
 
 }

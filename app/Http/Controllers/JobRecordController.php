@@ -50,11 +50,11 @@ class JobRecordController extends Controller
         $jobrecord = new Job_record;
 
         // set the job record's data from the form data
-        $jobrecord->app_data = $request->app_data;
-        $jobrecord->contact_method = $request->contact_method;
-        $jobrecord->employer_name = $request->employer_name;
-        $jobrecord->employer_address = $request->employer_address;
-        $jobrecord->employer_website = $request->employer_website;
+        $jobrecord->app_date = $request->app_date;
+        $jobrecord->contact = $request->contact;
+        $jobrecord->emp_name = $request->emp_name;
+        $jobrecord->emp_add = $request->emp_add;
+        $jobrecord->emp_website = $request->emp_website;
         $jobrecord->position = $request->position;
         $jobrecord->work_type = $request->work_type;
         $jobrecord->org_contact = $request->org_contact;
@@ -63,7 +63,23 @@ class JobRecordController extends Controller
         $jobrecord->confirmation_info = $request->confirmation_info;
 
         // create the new job record in the database
-        $jobrecord->save();
+        if (!$jobrecord->save()) {
+
+            $errors = $jobrecord->getErrors();
+
+            // redirect back to the create page
+            // and pass along the errors
+            return redirect()
+                ->action('JobRecordControlled@create')
+                ->with('errors', $errors);
+                ->withInput();
+        }
+
+        //success!
+        return redirect()
+        ->action('JobRecordController@index')
+        ->with('message', 
+            '<div class="alert alert-success">Job record created successfully!</div>');
     }
 
     /**
