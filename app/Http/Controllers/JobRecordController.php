@@ -70,8 +70,8 @@ class JobRecordController extends Controller
             // redirect back to the create page
             // and pass along the errors
             return redirect()
-                ->action('JobRecordControlled@create')
-                ->with('errors', $errors);
+                ->action('JobRecordController@create')
+                ->with('errors', $errors)
                 ->withInput();
         }
 
@@ -79,7 +79,7 @@ class JobRecordController extends Controller
         return redirect()
         ->action('JobRecordController@index')
         ->with('message', 
-            '<div class="alert alert-success">Job record created successfully!</div>');
+            '<div class="alert alert-success">Job record created successfully.</div>');
     }
 
     /**
@@ -92,7 +92,7 @@ class JobRecordController extends Controller
     {   
         $data = array();
         
-        $job_record = Job_record::find($id);
+        $job_record = Job_record::findOrFail($id);
         $data['job_record'] = $job_record;
         
         return view('jobrecords/show', $data );
@@ -106,7 +106,8 @@ class JobRecordController extends Controller
      */
     public function edit($id)
     {
-        //
+        $job_record = Job_record::findOrFail($id);
+        return view('jobrecords/edit', ['job_record' => $job_record]);
     }
 
     /**
@@ -118,9 +119,38 @@ class JobRecordController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+        $jobrecord = Job_record::findOrFail($id);
 
+        // set the job record's data from the form data
+        $jobrecord->app_date = $request->app_date;
+        $jobrecord->contact = $request->contact;
+        $jobrecord->emp_name = $request->emp_name;
+        $jobrecord->emp_add = $request->emp_add;
+        $jobrecord->emp_website = $request->emp_website;
+        $jobrecord->position = $request->position;
+        $jobrecord->work_type = $request->work_type;
+        $jobrecord->org_contact = $request->org_contact;
+        $jobrecord->contact_tel = $request->contact_tel;
+        $jobrecord->app_submit = $request->app_submit;
+        $jobrecord->confirmation_info = $request->confirmation_info;
+
+        // if the save fails
+        // redirect back to the edit page
+        // and show the errors
+         if (!$jobrecord->save()) {
+            return redirect()
+                ->action('JobRecordController@edit', $jobrecord->id)
+                ->with('errors', $jobrecord->getErrors())
+                ->withInput();
+        }
+
+    // success!!
+    // redirect to index and pass a success message
+    return redirect()
+        ->action('JobRecordController@index')
+        ->with('message', 
+            '<div class="alert alert-success">The job record was updated.</div>');
+    }
     /**
      * Remove the specified resource from storage.
      *

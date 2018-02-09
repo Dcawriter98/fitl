@@ -18,6 +18,7 @@
 		<h2>The job record details follow:<br></h2>
 			<p class="list-group-item-text">
 				
+				<b>Date of Application</b> {{ $jobrecords->app_date }}<br>
 				<b>Employer name</b> {{ $jobrecords->emp_name }}<br>
 				<b>Employer address</b> {{ $jobrecords->emp_add }}<br>
 				<b>Employer website</b> {{ $jobrecords->emp_website }}<br>

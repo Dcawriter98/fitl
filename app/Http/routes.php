@@ -24,11 +24,12 @@ Route::get('hello', function () {
 });
 
 Route::get('about', 'PageController@about');
-
 Route::get('contact', 'PageController@contact');
 
 //Route::get('contact', 'PageControllerContact@contact');
 
+Route::get('jobrecords/{jobrecord}/edit', 'JobRecordController@edit');
+Route::put('jobrecords/{jobrecord}', 'JobRecordController@update');
 Route::post('jobrecords/store', 'JobRecordController@store');
 Route::get('jobrecords/create', 'JobRecordController@create');
 Route::get('jobrecords/{jobrecord}', 'JobRecordController@show');
